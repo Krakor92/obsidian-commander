@@ -86,34 +86,6 @@ esbuild
 					});
 				},
 			},
-			{
-				name: "Move output",
-				setup(build) {
-					build.onEnd(() => {
-						setTimeout(
-							() => {
-								try {
-									copyFileSync(
-										"styles.css",
-										"../../vault/.obsidian/plugins/cmdr/styles.css"
-									);
-									copyFileSync(
-										"main.js",
-										"../../vault/.obsidian/plugins/cmdr/main.js"
-									);
-									copyFileSync(
-										"manifest.json",
-										"../../vault/.obsidian/plugins/cmdr/manifest.json"
-									);
-								} catch (error) {
-									console.error(error);
-								}
-							},
-							prod ? 5000 : 500
-						);
-					});
-				},
-			},
 		],
 	})
 	.catch(() => process.exit(1));

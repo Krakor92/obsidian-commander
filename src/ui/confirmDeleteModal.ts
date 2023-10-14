@@ -5,7 +5,7 @@ import CommanderPlugin from "src/main";
 import { confirmDeleteComponent } from "./components/confirmDeleteComponent";
 
 export default class ConfirmDeleteModal extends Modal {
-	private reactComponent: VNode;
+	private reactComponent: VNode<any>;
 	public remove: boolean;
 
 	// eslint-disable-next-line no-unused-vars

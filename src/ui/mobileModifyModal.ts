@@ -5,7 +5,7 @@ import { h, render, VNode } from "preact";
 import MobileModifyComponent from "./components/mobileModifyComponent";
 
 export default class MobileModifyModal extends Modal {
-	private reactComponent: VNode;
+	private reactComponent: VNode<any>;
 	public remove: boolean;
 
 	public constructor(
