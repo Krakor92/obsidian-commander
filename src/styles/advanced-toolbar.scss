@@ -2,54 +2,49 @@
 .body {
 	--at-button-height: 48;
 	--at-row-count: 2;
-	--at-row-count: 0;
 }
 
-/*Multi Row Toolbar*/
-.AT-multirow.AT-row {
-	.mobile-toolbar-options-container {
-		flex-flow: column wrap;
-	}
+.mobile-toolbar {
+	height: calc(var(--at-button-height) * var(--at-row-count) + var(--at-spacing)) !important;
+	position: sticky !important;
+	z-index: 5;
+	margin-bottom: var(--at-offset);
 }
-.is-mobile {
-	.mobile-toolbar {
-		position: sticky !important;
-		z-index: 5;
-		margin-bottom: var(--at-offset);
-	}
+
+.mobile-toolbar-options-container {
+	display: block;
+	height: inherit;
 }
-.AT-always-shown {
-	.is-pinned {
-		.workspace-drawer-inner {
-			margin-bottom: calc(
-				var(--at-button-height) * var(--at-row-count) +
-					var(--at-spacing)
-			);
-		}
-	}
-}
-.AT-multirow.AT-column {
-	.mobile-toolbar-options-container {
-		flex-flow: row wrap;
-		overflow-y: auto;
-	}
-}
+
 .mobile-toolbar-option {
 	height: var(--at-button-height);
 	min-width: var(--at-button-width);
 }
+
+/*Multi Row Toolbar*/
 .AT-multirow {
-	.mobile-toolbar {
-		height: calc(
-			var(--at-button-height) * var(--at-row-count) + var(--at-spacing)
-		) !important;
-	}
+
 	.mobile-toolbar-options-container {
-		height: calc(
-			var(--at-button-height) * var(--at-row-count) + var(--at-spacing)
-		) !important;
+		overflow-y: auto;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
+	.mobile-toolbar-options-list {
+		flex-wrap: wrap;
 	}
 }
+
+.AT-always-shown {
+	.is-pinned {
+		.workspace-drawer-inner {
+			margin-bottom: calc(var(--at-button-height) * var(--at-row-count) + var(--at-spacing));
+		}
+	}
+}
+
 .AT-no-toolbar {
 	.mobile-toolbar {
 		display: none;
